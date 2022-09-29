@@ -1,0 +1,107 @@
+
+* {
+    font-family: 'Inconsolata', monospace;
+}
+body {
+    background: rgb(5,25,35);
+    background: 
+    linear-gradient(270deg, 
+    rgba(5,25,35,1) 0%, 
+    rgba(0,100,148,1) 48%, 
+    rgba(0,166,251,1) 100%);
+}
+. {
+    letter-spacing: 0.3625rem ;
+    
+}
+.contenedor-de-vuelta-a-inicio {
+    background-color: transparent;
+    height: 70px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 10px;
+    padding-left: 50px;
+    
+}
+.contenedor-de-vuelta-a-inicio img {
+    width: 60px;
+}
+/* Diseño del lado izquierdo del inicio de sesion, informacion.*/
+.lado-izquierdo {
+border-radius: 20px;
+border: 1px solid #000;
+width: 45%;
+margin-right: 20px;
+height: 90vh;
+align-items: center;
+text-align: inherit;
+padding: 30px 60px;
+}
+.lado-izquierdo h1 {
+    color: #FFFFFF;
+}
+.lado-izquierdo h4 {
+    color: #FFFFFF;
+}
+.solanaLogo {
+    width: 100px;
+}
+
+/* Diseño del lado derecho de inicio de sesion o formulacio*/
+
+.lado-formulario {
+    border-radius: 20px;
+    border: 1px solid #000;
+    height: 90vh;
+    padding: 20px;
+    align-items: center;
+    text-align: left;
+    
+}
+
+.formulario-login {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 90%;
+    
+}
+.formulario-login h3 {
+    
+    color: #003554;
+}
+.formulario-login small {
+    color: #006494;
+}
+.formulario-login a {
+    text-decoration: none;
+    color: #006494;
+    font-size: 20px;
+}
+
+.correo-form {
+    margin-top: 40px;
+    margin-bottom: 10px;
+
+}
+.correo-form input {
+    width: 100%;
+}
+
+.contrasena-form {
+    margin-top: 40px;
+    margin-bottom: 10px;
+
+}
+.contrasena-form input {
+    width: 100%;
+}
+
+.boton-login{
+    text-align: center;
+    margin-top: 60px;
+}
+.boton-login input {
+    width: 80%;
+}

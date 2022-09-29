@@ -54,14 +54,14 @@ let cuentas = [
       apellido: "De La Hoz",
       correo: "victor@gmail.com",
       contraseña: "victor1231",
-      id: "1007134223"
+      id: "1007134223",
    },
    {
       nombre: "Esteban",
       apellido: "De La Hoz",
       correo: "esteban@gmail.com",
       contraseña: "esteban1213",
-      id: "1007134223"
+      id: "1007134223",
    },
 
 ];
