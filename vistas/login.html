@@ -62,18 +62,21 @@
                     <!-- area del correo electronico -->
                     <div class="correo-form">
                         <p>Direccion de correo electrónico</p>
-                        <input type="text" placeholder="Username01@inox.com">
+                        <input type="email" placeholder="Username01@inox.com" id="email">
                     </div>
                     <!-- area de la contraseña-->
                     <div class="contrasena-form">
                         <p>Contraseña</p>
-                        <input type="password" placeholder="··········">
+                        <input type="password" placeholder="··········" id="pass">
                     </div>
 
                     <!-- area del boton de ingresar -->
                     <div class="boton-login">
-                        <input class="btn-register" type="submit" value="Ingresar">
+                        <input class="btn-register" type="button" value="Ingresar" id="login">
                     </div>
+                    <div class="alert-sesionFalse" id="alertSesionFalse">
+                        <!-- aquí va un mensaje de error por que el usuario no existe-->
+                      </div>
                 </form>
             </div>
         </div>
@@ -84,7 +87,8 @@
    
 
    
-
+    <script src="../js/login.js"></script>
+    <script src="../js/logicaInterfazInicioSesion.js"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

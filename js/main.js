@@ -47,24 +47,7 @@ $(window).on("scroll", function() {
  });
 
 
- // esta es la lista de objetos para las cuentas
-let cuentas = [
-   {
-      nombre: "Victor",
-      apellido: "De La Hoz",
-      correo: "victor@gmail.com",
-      contraseña: "victor1231",
-      id: "1007134223",
-   },
-   {
-      nombre: "Esteban",
-      apellido: "De La Hoz",
-      correo: "esteban@gmail.com",
-      contraseña: "esteban1213",
-      id: "1007134223",
-   },
 
-];
 
 
 

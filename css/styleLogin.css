@@ -168,3 +168,10 @@ padding: 30px 60px;
    background: #0380ba;
 
 }
+
+/*   mensaje por validacion de inicio de sesion*/
+.alert-sesionFalse {
+    color: #ff0000 !important;
+    text-align: center;
+    margin-top: 20px;
+}
