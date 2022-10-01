@@ -11,7 +11,7 @@ login.addEventListener("click", ()=> {
     bAcceso = validarCredenciales(sCorreo, sContraseña);
 
     if (bAcceso === true) {
-        window.location.href = "VistaCuentaUsuario.html";
+        window.location.href = "CuentaSIUI.html";
     }else if (bAcceso === false) {
         let mensajeFalso = document.createElement("SMALL");
         mensajeFalso.innerHTML = "¡Usuario o contraseñas incorrectas!";
