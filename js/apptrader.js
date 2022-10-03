@@ -12,7 +12,7 @@ function calculateBitcoin(){
                 usdContainer.value = (bitcoinContainer.value * bitcoin1).toFixed(2);
             });
     } else if (bitcoinContainer.value <= -1) {
-               notaNegativa.textContent = "Solo se admite numero positivos, por favor de ingresar numero positivos.";
+               notaNegativa.textContent = "¡Solo se admite numero positivos, por favor de ingresar numero positivos!";
     }  
 }
 
@@ -25,7 +25,7 @@ ction calculateUsd() {
         bitcoinContainer.value = (usdContainer.value * usd);
         console.log(bitcoinContainer.value);
     } else if (usdContainer.value <= -1) {
-                notaNegativa.textContent = "Solo se admite numero positivos, por favor de ingresar numero positivos.";
+                notaNegativa.textContent = "¡Solo se admite numero positivos, por favor de ingresar numero positivos!";
     }
 }
 //Eventos
