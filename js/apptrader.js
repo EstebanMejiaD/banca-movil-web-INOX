@@ -4,20 +4,29 @@ const bitcoinContainer = document.getElementById('BitcoinF');
 
 
 function calculateBitcoin(){
-    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
-    .then(Response => Response.json())
-    .then(data => {
-        const bitcoin1 = data.bpi.USD.rate_float;
-       usdContainer.value = (bitcoinContainer.value * bitcoin1).toFixed(2);
-    });   
+   if (bitcoinContainer.value > 0) {
+        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .then(Response => Response.json())
+            .then(data => {
+                const bitcoin1 = data.bpi.USD.rate_float;
+                usdContainer.value = (bitcoinContainer.value * bitcoin1).toFixed(2);
+            });
+    } else if (bitcoinContainer.value <= -1) {
+        alert("Solo se admite numero positivos, por favor de ingresar numero positivos.")
+    }  
 }
 
 
 //funcion estatica
 function calculateUsd(){
-const usd = 0.000051;
-bitcoinContainer.value = (usdContainer.value * usd);
-console.log(bitcoinContainer.value);
+ction calculateUsd() {
+    if (usdContainer.value > 0) {
+        const usd = 0.000051;
+        bitcoinContainer.value = (usdContainer.value * usd);
+        console.log(bitcoinContainer.value);
+    } else if (usdContainer.value <= -1) {
+        alert("Solo se admite numero positivos, por favor de ingresar numero positivos.")
+    }
 }
 //Eventos
 usdContainer.addEventListener('input', calculateUsd);
