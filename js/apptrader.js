@@ -1,7 +1,7 @@
 //variables para tomar el numero
 const usdContainer = document.getElementById('UsdF');
 const bitcoinContainer = document.getElementById('BitcoinF');
-
+const notaNegativa = document.getElementById('numeroNegativo');
 
 function calculateBitcoin(){
    if (bitcoinContainer.value > 0) {
