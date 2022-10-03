@@ -19,15 +19,14 @@ function calculateBitcoin(){
 
 
 //funcion estatica
-function calculateUsd(){
-ction calculateUsd() {
+function calculateUsd() {
     if (usdContainer.value > 0) {
         const usd = 0.000051;
         bitcoinContainer.value = (usdContainer.value * usd);
-        console.log(bitcoinContainer.value);
-       notaNegativa.textContent = "";
+         console.log(bitcoinContainer.value);
+        notaNegativa.textContent = "";
     } else if (usdContainer.value <= -1) {
-                notaNegativa.textContent = "¡Solo se admite numero positivos, por favor de ingresar numero positivos!";
+        notaNegativa.textContent = "¡Solo se admite numero positivos, por favor de ingresar numero positivos!";
     }
 }
 //Eventos
