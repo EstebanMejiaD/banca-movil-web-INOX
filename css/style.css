@@ -158,6 +158,11 @@ header {
     color: #025a83;
 }
 
+.f-apptrader {
+    margin: 10px;
+    font-size: 15px;
+    color: #FF0000;
+}
 
 .small-apptrader {
     display: block;
