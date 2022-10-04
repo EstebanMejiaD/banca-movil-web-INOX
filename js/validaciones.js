@@ -7,11 +7,11 @@ const inputs = document.querySelectorAll("#Formulario input");
 //Se crea un objeto donde va contener las expresiones:
 const expresiones ={
 
- Cedula:/^((\d{8})|(\d{10})|(\d{11})|(\d{6}-\d{5}))?$/,
- Nombre: /^[a-zA-ZÀ-ÿ\s]{4,15}$/,
- Apellido: /^[a-zA-ZÀ-ÿ\s]{4,15}$/,
- Correo:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
- Contraseña: /^.{8,25}$/
+ E_Cedula:/^.{8,11}$/,
+ E_Nombre: /^[a-zA-ZÀ-ÿ\s]{4,15}$/,
+ E_Apellido: /^[a-zA-ZÀ-ÿ\s]{4,15}$/,
+ E_Correo:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+ E_Contraseña: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
 
 }
 
@@ -28,19 +28,19 @@ const campos = {
 const ValidarFormulario = (e) =>{
     switch (e.target.name){
         case "Nombre":
-            ValidarCampo(expresiones.Nombre, e.target, "Nombre");                
+            ValidarCampo(expresiones.E_Nombre, e.target, "Nombre");                
         break;  
         case "Apellido":
-            ValidarCampo(expresiones.Apellido, e.target, "Apellido");
+            ValidarCampo(expresiones.E_Apellido, e.target, "Apellido");
         break;
         case "Cedula":
-            ValidarCampo(expresiones.Cedula, e.target, "Cedula");
+            ValidarCampo(expresiones.E_Cedula, e.target, "Cedula");
         break;
         case "Correo":
-            ValidarCampo(expresiones.Correo, e.target, "Correo");
+            ValidarCampo(expresiones.E_Correo, e.target, "Correo");
         break;
         case "Contraseña":
-            ValidarCampo(expresiones.Contraseña, e.target, "Contraseña");
+            ValidarCampo(expresiones.E_Contraseña, e.target, "Contraseña");
         break;
     }
 
@@ -76,6 +76,11 @@ const ValidarCampo = (expresion, input, campo) =>{
     }
 }
 
+const RNombre = document.querySelector('#Nombre').value;
+const RApellido = document.querySelector('#Apellido').value;
+const RCorreo = document.querySelector('#Correo').value;
+const RContraseña = document.querySelector('#Contraseña').value;
+
 //Aqui se utiliza cada input creado en el html
 inputs.forEach(input=>{
     input.addEventListener("keyup",ValidarFormulario);
@@ -87,6 +92,7 @@ C_Formulario.addEventListener("submit", (e)=>{
 
     //const term = document.getElementById("Terminos");
     if(campos.Nombre && campos.Apellido && campos.Cedula && campos.Correo && campos.Contraseña){
+
         C_Formulario.reset();
         document.getElementById("form_mensaje-exito").classList.add("form_mensaje-exito-activar");
         document.getElementById("Formulario").classList.add("lado-formulario-mensaje");
@@ -94,6 +100,11 @@ C_Formulario.addEventListener("submit", (e)=>{
         document.getElementById("form_mensaje-exito").classList.remove ("form_mensaje-exito-activar");
         document.getElementById("Formulario").classList.remove("lado-formulario-mensaje");
         },5000);
+
+        document.querySelectorAll(".form_grupo-correcto").forEach((icono)=>{
+            icono.classList.remove("form_grupo-correcto");
+        });
+
     }else{
         document.getElementById("form_mensaje").classList.add("form_mensaje-activar");
         document.getElementById("Formulario").classList.add("lado-formulario-mensaje");
