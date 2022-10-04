@@ -50,7 +50,7 @@ padding: 30px 60px;
 
 .lado-formulario {
     
-    height: 120vh;
+    height: 115vh;
     padding: 10px;
     align-items: center;
     text-align: left;
@@ -106,8 +106,6 @@ padding: 30px 60px;
     color: #003554;
     height: 45px;
     transition: all 0.5s;
-
-
 }
 .correo-form p {
     color: #003554;
@@ -150,7 +148,7 @@ padding: 30px 60px;
 
 .boton-login{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .boton-login input {
     width: 80%;
@@ -171,4 +169,96 @@ padding: 30px 60px;
    color: #fff;
    background: #0380ba;
 
+}
+
+/* Css para las validaciones */
+
+.lado-formulario-error{
+    height: 1000px;
+    padding: 50px;
+    align-items: center;
+    text-align: left;
+    
+}
+
+.lado-formulario-mensaje{
+    height: 860px;
+    padding: 50px;
+    align-items: center;
+    text-align: left;
+    
+}
+
+.form_parrafo{
+    display: block;
+    cursor: pointer;
+}
+
+.form_grupo-input{
+    position: relative;;
+}
+
+.form_input{
+    transition: .3s ease all;
+}
+
+.form_input-error{
+    font-size: 16px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+.form_input-error-activo{
+    display: block;
+}
+
+.form_validacion-estado{
+    position: absolute;
+    right: 5px;
+    bottom: 6px;
+    z-index: 100;
+    font-size: 20px;
+    opacity: 0;
+}
+
+.form_mensaje{
+    background:#F66868;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 30px 20px 20px 20px;
+    display: none;
+}
+
+.form_mensaje-activar{
+    display: block;
+}
+
+.form_mensaje-exito{
+    background: #64c27b;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 20px 20px 20px;
+    display: none;
+}
+
+.form_mensaje-exito-activar{
+    display: block;
+}
+
+.form_grupo-correcto .form_validacion-estado{
+    color: #1ed12d;
+    opacity: 1;    
+}
+
+.form_grupo-incorrecto .form_validacion-estado{
+    color: #bb2929;
+    opacity: 1;    
+}
+
+.form_grupo-correcto .form_input{
+    border: 3px solid #1ed12d;
+}
+
+.form_grupo-incorrecto .form_input{
+    border: 3px solid #bb2929;
 }

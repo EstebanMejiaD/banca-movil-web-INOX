@@ -17,9 +17,9 @@ const expresiones ={
 
 //Se crea un objeto campo 
 const campos = {
-    Cedula: false,
     Nombre: false,
     Apellido: false,
+    Cedula: false,
     Correo: false,
     Contraseña: false
 }
@@ -27,14 +27,14 @@ const campos = {
 //Funcion para saber en que parte del formulario esta seleccionando
 const ValidarFormulario = (e) =>{
     switch (e.target.name){
-        case "Cedula":
-            ValidarCampo(expresiones.Cedula, e.target, "Cedula");                
-        break;  
         case "Nombre":
-            ValidarCampo(expresiones.Nombre, e.target, "Nombre");
-        break;
+            ValidarCampo(expresiones.Nombre, e.target, "Nombre");                
+        break;  
         case "Apellido":
             ValidarCampo(expresiones.Apellido, e.target, "Apellido");
+        break;
+        case "Cedula":
+            ValidarCampo(expresiones.Cedula, e.target, "Cedula");
         break;
         case "Correo":
             ValidarCampo(expresiones.Correo, e.target, "Correo");
@@ -50,17 +50,29 @@ const ValidarFormulario = (e) =>{
 const ValidarCampo = (expresion, input, campo) =>{
     if(expresion.test(input.value)){
 
-        document.getElementById(`Grupo_${campo}`).classList.remove("Form_Grupo-incorrecto");
-        document.getElementById(`Grupo_${campo}`).classList.add("Form_Grupo-correcto");
-        document.querySelector(`#Grupo_${campo} .Forminput-error`).classList.remove("Form_input-error-activo");
+        document.getElementById(`grupo_${campo}`).classList.remove("form_grupo-incorrecto");
+        document.getElementById(`grupo_${campo}`).classList.add("form_grupo-correcto");
+        document.querySelector(`#grupo_${campo} i`).classList.add("bi-check-circle-fill");
+        document.querySelector(`#grupo_${campo} i`).classList.remove("bi-x-circle-fill");
+        document.querySelector(`#grupo_${campo} .form_input-error`).classList.remove("form_input-error-activo");
+
+        //Para expandir el formulario:
+        document.getElementById("Formulario").classList.remove("lado-formulario-error");
+        //--------------------------------------------------------------------------------
         campos[campo] = true;
 
     }else{
-        document.getElementById(`Grupo_${campo}`).classList.add("Form_Grupo-incorrecto");
-        document.getElementById(`Grupo_${campo}`).classList.remove("Form_Grupo-correcto");
-        document.querySelector(`#Grupo_${campo} .Forminput-error`).classList.add("Form_input-error-activo");
-        campos[campo] = false;
+        document.getElementById(`grupo_${campo}`).classList.add("form_grupo-incorrecto");
+        document.getElementById(`grupo_${campo}`).classList.remove("form_grupo-correcto");
+        document.querySelector(`#grupo_${campo} i`).classList.add("bi-x-circle-fill");
+        document.querySelector(`#grupo_${campo} i`).classList.remove("bi-check-circle-fill");
+        document.querySelector(`#grupo_${campo} .form_input-error`).classList.add("form_input-error-activo");
 
+        //Para expandir el formulario
+        document.getElementById("Formulario").classList.add("lado-formulario-error");
+        document.getElementById("Formulario").classList.remove("lado-formulario");
+        //-------------------------------------------------------------------------------
+        campos[campo] = false;
     }
 }
 
@@ -74,17 +86,21 @@ C_Formulario.addEventListener("submit", (e)=>{
     e.preventDefault();
 
     //const term = document.getElementById("Terminos");
-    if(campos.Cedula && campos.Nombre && campos.Apellido && campos.Correo && campos.Contraseña){
+    if(campos.Nombre && campos.Apellido && campos.Cedula && campos.Correo && campos.Contraseña){
         C_Formulario.reset();
-        document.getElementById("Form_Mensaje-exito").classList.add("Form_Mensaje-exito-activado");
+        document.getElementById("form_mensaje-exito").classList.add("form_mensaje-exito-activar");
+        document.getElementById("Formulario").classList.add("lado-formulario-mensaje");
         setTimeout(() =>{
-        document.getElementById("Form_Mensaje-exito").classList.remove ("Form_Mensaje-exito-activado");
+        document.getElementById("form_mensaje-exito").classList.remove ("form_mensaje-exito-activar");
+        document.getElementById("Formulario").classList.remove("lado-formulario-mensaje");
         },5000);
-
     }else{
-        document.getElementById("Form_Mensaje").classList.add("Form_Mensaje-activado");
+        document.getElementById("form_mensaje").classList.add("form_mensaje-activar");
+        document.getElementById("Formulario").classList.add("lado-formulario-mensaje");
         setTimeout(() =>{
-        document.getElementById("Form_Mensaje").classList.remove ("Form_Mensaje-activado");
+        document.getElementById("form_mensaje").classList.remove ("form_mensaje-activar");
+        document.getElementById("Formulario").classList.remove("lado-formulario-mensaje");
         },5000);
+            
     }
-})
+});
