@@ -91,7 +91,6 @@ inputs.forEach(input=>{
 btnRegistro.addEventListener("click", (e)=>{
     e.preventDefault();
 
-    //const term = document.getElementById("Terminos");
     if(campos.Nombre && campos.Apellido && campos.Cedula && campos.Correo && campos.Contraseña){
 
         
@@ -129,13 +128,33 @@ btnRegistro.addEventListener("click", (e)=>{
 
 });
 
-let obtenerListaUsuarios = () => {
-    let UsuarioRegistrado = JSON.parse(localStorage.getItem("UsuarioRegistradoLs"));
 
-    if (UsuarioRegistrado === null) {
-        UsuarioRegistrado = RCuentas;
-    }
-    return  UsuarioRegistrado;
-}
+    // let UsuarioRegistrado = JSON.parse(localStorage.getItem("UsuarioRegistradoLs")) || [];
+    // UsuarioRegistrado = RCuentas;
 
 console.log(RCuentas);
+
+let obtenerListaUsuarios = () => {
+    let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarioLs"));
+
+    if (listaUsuarios === null) {
+        listaUsuarios = RCuentas;
+    }
+    return listaUsuarios;
+}
+
+// console.log(RCuentas);
+
+let validarCredenciales = (correo, contraseña) => {
+    let listaUsuarios = obtenerListaUsuarios();
+    let bAcceso = false;
+
+    for (let i = 0; i < listaUsuarios.length; i++) {
+        if (correo === listaUsuarios[i].correo && contraseña === listaUsuarios[i].contraseña) {
+            bAcceso = true;
+            sessionStorage.setItem("usuarioActivo", listaUsuarios[i].nombre +" "+ listaUsuarios[i].apellido);
+            
+        }
+    }
+    return bAcceso;
+}

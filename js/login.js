@@ -21,11 +21,13 @@
     
 ];
 
+console.log(RCuentas);
+
 let obtenerListaUsuarios = () => {
     let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarioLs"));
 
     if (listaUsuarios === null) {
-        listaUsuarios = UsuarioRegistrado;
+        listaUsuarios = RCuentas;
     }
     return listaUsuarios;
 }
