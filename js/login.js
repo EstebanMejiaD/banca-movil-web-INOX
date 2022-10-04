@@ -1,6 +1,4 @@
  // esta es la lista de objetos para las cuentas
-import {Registro} from"./validaciones";
-
  let Cuentas = [
     {
     nombre: "Esteban",
@@ -23,16 +21,16 @@ import {Registro} from"./validaciones";
     
 ];
 
-Cuentas = [Registro];
-
 let obtenerListaUsuarios = () => {
     let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarioLs"));
 
     if (listaUsuarios === null) {
-        listaUsuarios = Cuentas;
+        listaUsuarios = UsuarioRegistrado;
     }
     return listaUsuarios;
 }
+
+// console.log(RCuentas);
 
 let validarCredenciales = (correo, contraseña) => {
     let listaUsuarios = obtenerListaUsuarios();

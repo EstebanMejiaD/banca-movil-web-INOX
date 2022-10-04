@@ -1,4 +1,4 @@
-//Validaciones:
+//Validaciones
 
 //Se crea las constantes del formulario
 const C_Formulario = document.getElementById("Formulario");
@@ -76,10 +76,11 @@ const ValidarCampo = (expresion, input, campo) =>{
     }
 }
 
-const RNombre = document.querySelector('#Nombre').value;
-const RApellido = document.querySelector('#Apellido').value;
-const RCorreo = document.querySelector('#Correo').value;
-const RContraseña = document.querySelector('#Contraseña').value;
+console.log(inputs.Correo);
+
+let RCuentas = [];
+const btnRegistro = document.getElementById("registro");
+
 
 //Aqui se utiliza cada input creado en el html
 inputs.forEach(input=>{
@@ -87,13 +88,13 @@ inputs.forEach(input=>{
     input.addEventListener("blur",ValidarFormulario);
 })
 
-C_Formulario.addEventListener("submit", (e)=>{
+btnRegistro.addEventListener("click", (e)=>{
     e.preventDefault();
 
     //const term = document.getElementById("Terminos");
     if(campos.Nombre && campos.Apellido && campos.Cedula && campos.Correo && campos.Contraseña){
 
-        C_Formulario.reset();
+        
         document.getElementById("form_mensaje-exito").classList.add("form_mensaje-exito-activar");
         document.getElementById("Formulario").classList.add("lado-formulario-mensaje");
         setTimeout(() =>{
@@ -101,9 +102,20 @@ C_Formulario.addEventListener("submit", (e)=>{
         document.getElementById("Formulario").classList.remove("lado-formulario-mensaje");
         },5000);
 
+
         document.querySelectorAll(".form_grupo-correcto").forEach((icono)=>{
             icono.classList.remove("form_grupo-correcto");
         });
+
+       RCuentas.push({
+            nombre: inputs[0].value,
+            apellido: inputs[1].value,
+            cedula: inputs[2].value,
+            correo: inputs[3].value,
+            contraseña: inputs[4].value
+        })
+
+        C_Formulario.reset();
 
     }else{
         document.getElementById("form_mensaje").classList.add("form_mensaje-activar");
@@ -114,4 +126,16 @@ C_Formulario.addEventListener("submit", (e)=>{
         },5000);
             
     }
+
 });
+
+let obtenerListaUsuarios = () => {
+    let UsuarioRegistrado = JSON.parse(localStorage.getItem("UsuarioRegistradoLs"));
+
+    if (UsuarioRegistrado === null) {
+        UsuarioRegistrado = RCuentas;
+    }
+    return  UsuarioRegistrado;
+}
+
+console.log(RCuentas);
