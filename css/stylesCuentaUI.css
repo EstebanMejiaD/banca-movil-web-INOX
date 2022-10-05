@@ -23,6 +23,7 @@ body {
     top: 0;
     left: 0;
     padding: 0;
+    box-shadow:  7px 15px 25px #006494;
     
     
 }
@@ -71,22 +72,307 @@ body {
 .noticias-container {
     width: 25vw;
     height: 90vh;
-    background: #fff;
+    background: transparent;
     margin: 30px 20px;
     border-radius: 20px;
+    
 }
 
+
+
+
+/*  noticias-pertinentes */
+.noticias-pertinentes {
+    background: #fff;
+    
+    margin-left: 0;
+    margin-right: 0;
+
+    width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+    box-shadow:  7px 15px 25px #006494;
+}
+.informacion-noticia {
+    padding: 10px;
+}
+.noticias-pertinentes p {
+    font-size: 0.8rem;
+}
+.noticias-pertinentes h5 {
+    font-size: 0.97rem;
+    margin: 1px;
+}
+.img-contenedor-new {
+    display: flex;
+    justify-content: center;
+}
+.img-contenedor-new img {
+    object-fit: contain;
+    width: 30px;
+}
+
+/*  estadisticas-criptos */
+.estadisticas-criptos {
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    box-shadow:  7px 15px 25px #006494;
+}
+.contenedor-de-info-monedas img {
+    width: 30%;
+    display: inline;
+}
+.contenedor-de-info-monedas p {
+    display: inline;
+    text-align: center;
+}
+.contenedor-de-info-monedas small {
+    display: block;
+    text-align: center;
+}
+
+/*  lista-favoritos */
+.lista-favoritos {
+    padding-top: 10px;
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    box-shadow:  7px 15px 25px #006494;
+
+}
+
+.titulo-lista-favoritos{
+    text-align: center;
+}
+.contenedor-de-info-favoritos {
+    width: 100%;
+    padding: 0;
+}
+
+.contenedor-de-info-favoritos img {
+    width: 20%;
+    display: inline;
+   
+}
+
+
+
+.contenedor-de-info-favoritos h6{
+    display: inline;
+}
+.contenedor-de-info-favoritos small {
+    display: block;
+}
+
+
+.lado-derecho-info-favoritos {
+   margin: 0;
+   padding: 0;
+   text-align: right;
+
+}
+
+
+
+/*  hostorial-transaccion */
+.historial-transaccion {
+    padding-top: 10px;
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 190px;
+    text-align: center;
+    box-shadow:  7px 15px 25px #006494;
+}
+
+
+/* contenedor del balance y estadisticas*/
 .balance-container {
     width: 25vw;
     height: 90vh;
     background: #fff;
     margin: 30px 20px;
     border-radius: 20px;
+    box-shadow:  20px 15px 25px #006494;
 }
+.contenedor-balance-total {
+    padding-top: 10px;
+    background: #fff;
+    border-radius: 20px;
+    height: 200px;
+
+    
+}
+.contenedor-balance-total h5 {
+    margin-bottom: 0;
+}
+.contenedor-balance-total h3 {
+    margin-top: 0;
+}
+.contenedor-balance-total p {
+    text-align: center;
+}
+
+/* contenedor de controladores grafica*/
+.contenedor-de-controladores-grafica {
+    background: #fff;
+    padding: 10px 0;
+    /* border-bottom: 1px solid rgb(201, 201, 201);
+    border-top: 1px solid rgb(201, 201, 201); */
+}
+.contenedor-de-boton-grafia {
+    padding: 4px;
+    text-align: center;
+}
+.controlador-grafica {
+    border-radius: 13px;
+    font-size: 0.8rem;
+    border: none;
+    background: rgb(229, 228, 228);
+    width: 35px;
+}
+.controlador-grafica:focus {
+    
+    background: #58c7ff;
+    color: #006494;
+}
+
+/* contenedor de cuentas activas*/
+
+.contenedor-cuentas-activas {
+    margin-top: 10px;
+    padding: 0 10px;
+}
+/*contenedor de operaciones*/
 .operaciones-container {
     width: 25vw;
     height: 90vh;
     background: #fff;
     margin: 30px 20px;
     border-radius: 20px;
+    padding-top: 15px;
+    box-shadow:  20px 15px 25px #006494;
+}
+
+
+
+.formulario-login {
+    
+    border-radius: 20px;
+    background-color: #ffffff;
+    
+    transition: all 0.5s;
+    
+}
+
+.formulario-login h3 {
+    
+    color: #003554;
+}
+.formulario-login small {
+    color: #006494;
+    
+}
+
+.linkRegister {
+    text-decoration: none;
+    color: #004f74;
+    font-size: 17px;
+}
+
+.linkRegister:hover {
+    padding-bottom: 3px;
+    border-bottom: 2px solid #0b6189;
+    text-decoration: none;
+    color: #0b6189;
+}
+
+
+
+.correo-form {
+    margin-top: 40px;
+    margin-bottom: 10px;
+
+}
+.correo-form input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #064d76;
+    border-radius: 5px;
+    color: #003554;
+    height: 45px;
+    transition: all 0.5s;
+
+
+}
+.correo-form p {
+    color: #003554;
+}
+.correo-form input::placeholder {
+    color: #006494;
+}
+.correo-form input:focus {
+    box-shadow: 0px 2px 7px #006494;
+    height: 47px;
+}
+
+.contrasena-form {
+    margin-top: 40px;
+    margin-bottom: 10px;
+
+}
+
+.contrasena-form input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #064d76;
+    border-radius: 5px;
+    color: #003554;
+    height: 45px;
+    transition: all 0.5s;
+}
+.contrasena-form p {
+    color: #003554;
+}
+.contrasena-form input::placeholder {
+    color: #006494;
+}
+.contrasena-form input:focus {
+    box-shadow: 0px 2px 7px #006494;
+    height: 47px;
+}
+
+.boton-login{
+    text-align: center;
+    margin-top: 60px;
+}
+.boton-login input {
+    width: 80%;
+}
+
+.btn-register {
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    background: #006494;
+    color: #fff;
+    padding: 8px 20px;
+    transition: all 0.6s;
+    margin-right: 5px ;
+}
+
+.btn-register:hover {
+   color: #fff;
+   background: #0380ba;
+
 }
