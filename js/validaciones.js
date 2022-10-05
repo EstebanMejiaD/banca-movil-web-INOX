@@ -1,5 +1,5 @@
 //Validaciones
-
+let RCuentas = [];
 //Se crea las constantes del formulario
 const C_Formulario = document.getElementById("Formulario");
 const inputs = document.querySelectorAll("#Formulario input");
@@ -76,9 +76,9 @@ const ValidarCampo = (expresion, input, campo) =>{
     }
 }
 
-console.log(inputs.Correo);
 
-let RCuentas = [];
+
+
 const btnRegistro = document.getElementById("registro");
 
 
@@ -88,7 +88,8 @@ inputs.forEach(input=>{
     input.addEventListener("blur",ValidarFormulario);
 })
 
-btnRegistro.addEventListener("click", (e)=>{
+btnRegistro.addEventListener("click", (e) => {
+    let vAccess = false;
     e.preventDefault();
 
     if(campos.Nombre && campos.Apellido && campos.Cedula && campos.Correo && campos.Contraseña){
@@ -105,16 +106,13 @@ btnRegistro.addEventListener("click", (e)=>{
         document.querySelectorAll(".form_grupo-correcto").forEach((icono)=>{
             icono.classList.remove("form_grupo-correcto");
         });
+        vAccess = true;
 
-       RCuentas.push({
-            nombre: inputs[0].value,
-            apellido: inputs[1].value,
-            cedula: inputs[2].value,
-            correo: inputs[3].value,
-            contraseña: inputs[4].value
-        })
+      
+        
+        
 
-        C_Formulario.reset();
+        
 
     }else{
         document.getElementById("form_mensaje").classList.add("form_mensaje-activar");
@@ -123,38 +121,34 @@ btnRegistro.addEventListener("click", (e)=>{
         document.getElementById("form_mensaje").classList.remove ("form_mensaje-activar");
         document.getElementById("Formulario").classList.remove("lado-formulario-mensaje");
         },5000);
-            
+            vAccess = false;
     }
+    let registrarUsuarios = () => {
 
-});
-
-
-    // let UsuarioRegistrado = JSON.parse(localStorage.getItem("UsuarioRegistradoLs")) || [];
-    // UsuarioRegistrado = RCuentas;
-
-console.log(RCuentas);
-
-let obtenerListaUsuarios = () => {
-    let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarioLs"));
-
-    if (listaUsuarios === null) {
-        listaUsuarios = RCuentas;
-    }
-    return listaUsuarios;
-}
-
-// console.log(RCuentas);
-
-let validarCredenciales = (correo, contraseña) => {
-    let listaUsuarios = obtenerListaUsuarios();
-    let bAcceso = false;
-
-    for (let i = 0; i < listaUsuarios.length; i++) {
-        if (correo === listaUsuarios[i].correo && contraseña === listaUsuarios[i].contraseña) {
-            bAcceso = true;
-            sessionStorage.setItem("usuarioActivo", listaUsuarios[i].nombre +" "+ listaUsuarios[i].apellido);
-            
+        let rAccess = vAccess;
+       if (rAccess === true) {
+        let nuevoUsuario = {
+            nombre: inputs[0].value,
+            apellido: inputs[1].value,
+            cedula: inputs[2].value,
+            correo: inputs[3].value,
+            contraseña: inputs[4].value
         }
+        console.log(nuevoUsuario);
+        RCuentas.push(nuevoUsuario);
+        localStorage.setItem("usuariosRegistradosLS", JSON.stringify(RCuentas))
+       }
+       C_Formulario.reset();
     }
-    return bAcceso;
-}
+    registrarUsuarios(); 
+     
+});
+    
+
+
+
+
+
+
+
+

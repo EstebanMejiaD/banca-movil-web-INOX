@@ -1,49 +1,47 @@
- // esta es la lista de objetos para las cuentas
- let Cuentas = [
-    {
-    nombre: "Esteban",
-    apellido: "Mejia",
-    correo: "esteban@gmail.com",
-    contraseña: "esteban12345"
-    },
-    {
-    nombre: "Victor",
-    apellido: "De La Hoz",
-    correo: "victor@gmail.com",
-    contraseña: "victor12345"
-    },
-    {
-    nombre: "Danny",
-    apellido: "Hernandez",
-    correo: "dhernandez@gmail.com",
-    contraseña: "dani12345"
-    },
-    
-];
 
-console.log(RCuentas);
 
-let obtenerListaUsuarios = () => {
-    let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarioLs"));
+let obtenerUsuariosRegistrados = () => {
+    let obtenerListaUsuarios = JSON.parse(localStorage.getItem("usuariosRegistradosLS"));
 
-    if (listaUsuarios === null) {
-        listaUsuarios = RCuentas;
+    if (obtenerListaUsuarios === null) {
+        obtenerListaUsuarios = RCuentas;
     }
-    return listaUsuarios;
+    return obtenerListaUsuarios;
 }
-
-// console.log(RCuentas);
-
 let validarCredenciales = (correo, contraseña) => {
-    let listaUsuarios = obtenerListaUsuarios();
+    let listaUsuariosObtenida = obtenerUsuariosRegistrados();
     let bAcceso = false;
 
-    for (let i = 0; i < listaUsuarios.length; i++) {
-        if (correo === listaUsuarios[i].correo && contraseña === listaUsuarios[i].contraseña) {
+    for (let i = 0; i < listaUsuariosObtenida.length; i++) {
+        if (correo === listaUsuariosObtenida[i].correo && contraseña === listaUsuariosObtenida[i].contraseña) {
             bAcceso = true;
-            sessionStorage.setItem("usuarioActivo", listaUsuarios[i].nombre +" "+ listaUsuarios[i].apellido);
+            sessionStorage.setItem("usuarioActivo", listaUsuariosObtenida[i].nombre +" "+ listaUsuariosObtenida[i].apellido);
             
         }
     }
     return bAcceso;
 }
+
+
+const login =  document.querySelector("#login");
+
+login.addEventListener("click", ()=> {
+    let sCorreo = "";
+    let sContraseña = "";
+    let bAcceso = false;
+
+    sCorreo = document.querySelector("#email").value;
+    sContraseña = document.querySelector("#pass").value;
+     
+    bAcceso = validarCredenciales(sCorreo, sContraseña);
+
+    if (bAcceso === true) {
+        window.location.href = "CuentaSIUI.html";
+    }else if (bAcceso === false) {
+        let mensajeFalso = document.createElement("SMALL");
+        mensajeFalso.innerHTML = "¡Usuario o contraseñas incorrectas!";
+       const divAlertSesionFalse = document.querySelector("#alertSesionFalse");
+       divAlertSesionFalse.appendChild(mensajeFalso);
+       
+    }
+});
