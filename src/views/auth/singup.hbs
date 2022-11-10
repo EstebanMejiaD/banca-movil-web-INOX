@@ -31,7 +31,7 @@
                     
             </div>
             <div class="col-xl-6 lado-formulario" id="lado-formulario">
-                <form action="" class="formulario-login" id="Formulario">
+                <form action="/singup" method="POST" class="formulario-login" id="Formulario">
                     <!-- cabeza del formulario-->
                     <div class="head-form">
                         <h3>Unete a INOX</h3>
@@ -42,7 +42,7 @@
                         <div class="form_grupo" id="grupo_Nombre">
                         <p for="Nombre" class="form_parrafo">Primer nombre</p>
                         <div class="form_grupo-input">
-                        <input type="text" class="form_input" placeholder="Esteban" name="Nombre" id="nombre">
+                        <input type="text" class="form_input" placeholder="Esteban" name="Nombre" id="nombre" autofocus> <!-- INPUT NOMBRE-->
                         <i class="form_validacion-estado bi bi-x-circle-fill"></i>
                         </div>
                         <p class="form_input-error">Ha ingresado un nombre con pocas letras o muchas letras y solo se permiten letras.</p>
@@ -53,7 +53,7 @@
                         <div class="form_grupo" id="grupo_Apellido">
                         <p for="Apellido" class="form_parrafo">Primer apellido</p>
                         <div class="form_grupo-input">
-                        <input type="text" class="form_input" placeholder="Mejia" name="Apellido" id="apellido">
+                        <input type="text" class="form_input" placeholder="Mejia" name="Apellido" id="apellido"> <!-- INPUT NOMBRE-->
                         <i class="form_validacion-estado bi bi-x-circle-fill"></i>
                         </div>
                         <p class="form_input-error">Ha ingresado un Apellido con pocas letras o muchas letras y solo se permiten letras.</p>
@@ -64,7 +64,7 @@
                         <div class="form_grupo" id="grupo_Cedula">
                         <p for="Cedula" class="form_parrafo">Numero de identificación</p>
                         <div class="form_grupo-input">
-                        <input type="text" class="form_input" placeholder="1008233422" name="Cedula" id="cedula">
+                        <input type="text" class="form_input" placeholder="1008233422" name="Cedula" id="cedula"><!-- INPUT NOMBRE-->
                         <i class="form_validacion-estado bi bi-x-circle-fill"></i>
                         </div>
                         <p class="form_input-error">La cedula colombiana contiene entre [8-10-11] Digitos.</p>
@@ -75,7 +75,7 @@
                         <div class="form_grupo" id="grupo_Correo">
                         <p for="Correo" class="form_parrafo">Direccion de correo electrónico</p>
                         <div class="form_grupo-input">
-                        <input type="text" class="form_input" placeholder="Username01@inox.com" name="Correo" id="correo">
+                        <input type="text" class="form_input" placeholder="Username01@inox.com" name="Correo" id="correo"><!-- INPUT NOMBRE-->
                         <i class="form_validacion-estado bi bi-x-circle-fill"></i>
                         </div>
                         <p class="form_input-error">El correo solo puede contener letras, numeros, puntos y guion bajo. </p>
@@ -86,7 +86,7 @@
                         <div class="form_grupo" id="grupo_Contraseña">
                         <p for="Contraseña" class="form_parrafo">Contraseña</p>
                         <div class="form_grupo-input">
-                        <input type="password" class="form_input" placeholder="··········" name="Contraseña" id="contraseña">
+                        <input type="password" class="form_input" placeholder="··········" name="Contraseña" id="contraseña"><!-- INPUT NOMBRE-->
                         <i class="form_validacion-estado bi bi-x-circle-fill"></i>
                         </div>
                         <p class="form_input-error">Debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula , 1 número y carácter especial.</p>

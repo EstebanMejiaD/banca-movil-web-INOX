@@ -90,7 +90,7 @@ inputs.forEach(input=>{
 
 btnRegistro.addEventListener("click", (e) => {
     let vAccess = false;
-    e.preventDefault();
+    
 
     if(campos.Nombre && campos.Apellido && campos.Cedula && campos.Correo && campos.Contraseña){
 
@@ -123,24 +123,7 @@ btnRegistro.addEventListener("click", (e) => {
         },5000);
             vAccess = false;
     }
-    let registrarUsuarios = () => {
-
-        let rAccess = vAccess;
-       if (rAccess === true) {
-        let nuevoUsuario = {
-            nombre: inputs[0].value,
-            apellido: inputs[1].value,
-            cedula: inputs[2].value,
-            correo: inputs[3].value,
-            contraseña: inputs[4].value
-        }
-        console.log(nuevoUsuario);
-        RCuentas.push(nuevoUsuario);
-        localStorage.setItem("usuariosRegistradosLS", JSON.stringify(RCuentas))
-       }
-       C_Formulario.reset();
-    }
-    registrarUsuarios(); 
+    // C_Formulario.reset()
      
 });
     
