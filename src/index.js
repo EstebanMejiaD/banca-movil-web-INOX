@@ -13,11 +13,13 @@ const session = require('express-session')
 const MySqlStore = require('express-mysql-session')
 const passport = require('passport')
 
+
 // initializations
 const app = express()
 require('./lib/passport')
 
 const {database} = require('./keys')
+
 //settings
 app.set('port', process.env.PORT || 4000)
 app.set('views', path.join(__dirname, 'views'))
@@ -81,6 +83,7 @@ app.use('./links',require('./routes/links'))
 
 // public
 app.use(express.static(path.join(__dirname, 'public')))
+// mi carpeta publica esta aqui : /src/public
 
 
 

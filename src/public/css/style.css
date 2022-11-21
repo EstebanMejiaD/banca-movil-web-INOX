@@ -8,6 +8,11 @@
     letter-spacing: 0.3625rem ;
     
 }
+
+.hamIcon {
+    font-size: 1.5em;
+    color: #fff;
+}
 .navbar .nav-link{
 
     color: white;
