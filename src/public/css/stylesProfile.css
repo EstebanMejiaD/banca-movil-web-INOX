@@ -300,7 +300,8 @@ body {
 
 
 .correo-form {
-    margin-top: 40px;
+    margin-top: 10px;
+
     margin-bottom: 10px;
 
 }
@@ -327,9 +328,8 @@ body {
 }
 
 .contrasena-form {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 10px;
-
 }
 
 .contrasena-form input {
@@ -354,7 +354,8 @@ body {
 
 .boton-login{
     text-align: center;
-    margin-top: 60px;
+    margin-top: 30px;
+
 }
 .boton-login input {
     width: 80%;
@@ -375,4 +376,8 @@ body {
    color: #fff;
    background: #0380ba;
 
+}
+
+.inactive {
+    display: none !important;
 }

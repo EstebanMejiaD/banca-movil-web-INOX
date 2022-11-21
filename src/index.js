@@ -74,8 +74,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'))
 //requiero el archivo authentication.js de la carpeta routes
 app.use(require('./routes/authentication'))
-//requiero el archivo links.js de la carpeta routes
-app.use('./links',require('./routes/links'))
+
 
 
 
