@@ -33,8 +33,10 @@ CREATE TABLE transaccion(
     id_envia INT(11) NOT NULL,
     id_revibe INT(11) NOT NULL,
     monto INT(15) NOT NULL,
-    fecha DATETIME NOT NULL,
+    fecha DATE NOT NULL,
     mensaje VARCHAR(200) NOT NULL,
+    emailRecibe VARCHAR(200) NOT NULL,
+    emailEnvia VARCHAR(200) NOT NULL,
     CONSTRAINT fk_userE FOREIGN KEY (id_envia) REFERENCES users(id),
     CONSTRAINT fk_userR FOREIGN KEY (id_revibe) REFERENCES users(id)
 );

@@ -183,17 +183,35 @@ body {
 
 /*  hostorial-transaccion */
 .historial-transaccion {
-    padding-top: 10px;
+    padding-top: 5px;
     background: #fff;
     margin-top: 30px;
     border-radius: 20px;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    height: 190px;
+    height: 300px;
     text-align: center;
     box-shadow:  7px 15px 25px #006494;
 }
+.historial-transaccion h5 {
+    margin: 0;
+    height: fit-content;
+    
+}
+.contenedor-transaccion-history {
+    border: 1px solid #999;
+    border-radius: 25px;
+    margin-top: 3px;
+}
+.contenedor-transaccion-history p {
+    margin: 0;
+}
+
+.mensaje-sin-transacciones {
+    margin-top: 100px;
+}
+
 
 
 /* contenedor del balance y estadisticas*/
@@ -226,12 +244,12 @@ body {
 /* contenedor de controladores grafica*/
 .contenedor-de-controladores-grafica {
     background: #fff;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     /* border-bottom: 1px solid rgb(201, 201, 201);
     border-top: 1px solid rgb(201, 201, 201); */
 }
 .contenedor-de-boton-grafia {
-    padding: 4px;
+    /* padding: 4px; */
     text-align: center;
 }
 .controlador-grafica {
@@ -245,6 +263,13 @@ body {
     
     background: #58c7ff;
     color: #006494;
+}
+.historial-controler {
+    width: fit-content;
+}
+
+.contenedor-cotrol-historial {
+    height: fit-content;
 }
 
 /* contenedor de cuentas activas*/
@@ -376,6 +401,11 @@ body {
    color: #fff;
    background: #0380ba;
 
+}
+.contenedor-generador-codigo {
+    border-top: 1px solid #999;
+    padding-top: 3px;
+    
 }
 
 .inactive {

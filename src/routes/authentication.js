@@ -38,8 +38,14 @@ router.post('/login', (req, res, next)=> {
 
 
 //
-router.get("/profile", isLoggedIn, (req, res) => {
-  res.render("profile/profile.hbs");
+router.get("/profile", isLoggedIn, async(req, res) => {
+
+    const listaTransaccionesEnviada = await pool.query('SELECT * FROM transaccion WHERE id_envia = ?', [req.user.id])
+    
+    const listaTransaccionesRecibidas = await pool.query('SELECT * FROM transaccion WHERE id_revibe = ?', [req.user.id])
+
+    
+  res.render("profile/profile.hbs", {listaTransaccionesEnviada, listaTransaccionesRecibidas});
 });
 
 router.get('/logout', function(req, res, next){
@@ -76,7 +82,9 @@ router.post('/enviar', async(req, res)=> {
       id_envia,
       id_revibe,
       monto,
-      mensaje
+      mensaje,
+      emailRecibe: email,
+      emailEnvia: req.user.email,
     }
 
 
@@ -97,6 +105,15 @@ router.post('/enviar', async(req, res)=> {
 
 
 
+})
+
+
+router.get('/retirar', async(req,res)=> {
+    const codigo = Math.round(Math.random()*999999);
+    console.log('codigo: ', codigo)
+    
+    res.render('profile/cajeroAtm')
+    res.send('codigo enviado')
 })
 
 

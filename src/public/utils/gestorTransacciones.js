@@ -39,3 +39,30 @@ function abrirSacar() {
 }
 
 
+
+
+// historial de transacciones
+const controlEnviados = document.getElementById('controlEnviados')
+const controlRecibidos = document.getElementById('controlRecibidos')
+
+const contenedorEnviados = document.getElementById('contenedorEnviados')
+const contenedorRecibidos = document.getElementById('contenedorRecibidos')
+const noTransaccion = document.getElementById('noTransaccion')
+
+controlEnviados.addEventListener('click', showEnviados)
+
+function showEnviados() {
+    contenedorEnviados.classList.remove('inactive')
+    contenedorRecibidos.classList.add('inactive')
+    noTransaccion.classList.add('inactive')
+
+}
+
+controlRecibidos.addEventListener('click', showRecibidos)
+
+function showRecibidos() {
+    contenedorEnviados.classList.add('inactive')
+    contenedorRecibidos.classList.remove('inactive')
+    noTransaccion.classList.add('inactive')
+}
+ 

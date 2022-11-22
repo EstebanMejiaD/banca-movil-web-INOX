@@ -1,4 +1,3 @@
-
 {{!-- <div class="container p-4">
         <div class="row">
           <div class="col-md-4 mx-auto">
@@ -12,7 +11,7 @@
       </div> --}}
 
 {{#if user}}
-<link rel="stylesheet" type="text/css" href="/css/stylesProfile.css" />
+  <link rel="stylesheet" type="text/css" href="/css/stylesProfile.css" />
 
   <div class="container contenedor-de-vuelta-a-inicio">
     <div class="logo-inox">
@@ -26,9 +25,8 @@
         <li><a class="nav__link" href="#"><i
               class="bi bi-list-check"
             ></i></a></li>
-        <li><a class="nav__link" href="#"><i
-              class="bi bi-graph-up-arrow"
-            ></i></a></li>
+        <li><a class="nav__link" href="#"><i class="bi bi-chat"></i></a></li>
+
         <li><a class="nav__link" href="#"><i
               class="bi bi-symmetry-vertical"
             ></i></a></li>
@@ -74,7 +72,7 @@
             <h5>Lista de favoritos</h5>
           </div>
 
-          <div class="row contenedor-de-info-favoritos">
+          {{! <div class="row contenedor-de-info-favoritos">
             <div class="col-lg-8 lado-izquierdo-info-favoritos">
               <img src="../images/logoBTC.png" alt="logoBTC" />
               <h6>Bitcoin</h6>
@@ -84,7 +82,7 @@
               <h6>€ 19.323</h6>
               <small>-1.7%</small>
             </div>
-          </div>
+          </div> }}
 
           <div class="row contenedor-de-info-favoritos">
             <div class="col-lg-8 lado-izquierdo-info-favoritos">
@@ -113,8 +111,51 @@
         </div>
 
         <div class="row historial-transaccion">
-          <h5>Historial de transacciones</h5>
-          <p>Aún no has realizado ninguna transacción</p>
+          <div class="col-md-12 contenedor-cotrol-historial">
+            <h5>Historial de transacciones</h5>
+
+            <div class="row contenedor-de-controladores-grafica">
+              <div class="col-md-6 contenedor-de-boton-grafia">
+                <button
+                  id="controlEnviados"
+                  class="controlador-grafica historial-controler"
+                >Enviados</button>
+              </div>
+              <div class="col-md-6 contenedor-de-boton-grafia">
+                <button
+                  id="controlRecibidos"
+                  class="controlador-grafica historial-controler"
+                >Recibidos</button>
+              </div>
+            </div>
+            <div class="container inactive" id="contenedorEnviados">
+              {{#each listaTransaccionesEnviada}}
+                <div class="container contenedor-transaccion-history">
+                  <p>{{fecha}}</p>
+                  <p>para: {{emailRecibe}}</p>
+                  <p class="ultimo-p">Monto de: {{monto}}</p>
+
+                </div>
+              {{/each}}
+
+            </div>
+            <div class="container inactive" id="contenedorRecibidos">
+              {{#each listaTransaccionesRecibidas}}
+                <div class="container contenedor-transaccion-history">
+                  <p>{{fecha}}</p>
+                  <p>De: {{emailEnvia}}</p>
+                  <p class="ultimo-p">Monto de: {{monto}}</p>
+
+                </div>
+              {{/each}}
+
+            </div>
+            <div class="container mensaje-sin-transacciones" id="noTransaccion">
+              <p>Has click en "Enviados" ó "Recibidos" para las transacciones.</p>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -177,7 +218,7 @@
               <button class="btn btn-success" id="openRecibir">Recibir</button>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-danger" id="openSacar">Sacar</button>
+              <button class="btn btn-danger" id="openSacar">Retirar</button>
             </div>
           </div>
 
@@ -191,12 +232,12 @@
             </div>
 
             <div class="contrasena-form">
-              <input type="number" placeholder="Monto a enviar" name="monto"/>
+              <input type="number" placeholder="Monto a enviar" name="monto" />
             </div>
 
             <div class="contrasena-form">
 
-              <input type="text" placeholder="Mensaje" name="mensaje"/>
+              <input type="text" placeholder="Mensaje" name="mensaje" />
             </div>
 
             <div class="boton-login">
@@ -206,12 +247,15 @@
           </form>
         </div>
 
-          <!-- form  para pedir dinero-->
+        <!-- form  para pedir dinero-->
         <div class="container inactive" id="formPedir">
           <form action="" method="post" class="formulario-login">
             <h5 class="mt-4">Pedir dinero.</h5>
             <div class="correo-form">
-              <input type="email" placeholder="¿De quien vas a recibir dinero?" />
+              <input
+                type="email"
+                placeholder="¿De quien vas a recibir dinero?"
+              />
             </div>
 
             <div class="contrasena-form">
@@ -229,40 +273,23 @@
 
           </form>
         </div>
+        <!-- espacio para sacar dinero -->
         <div class="container inactive" id="formSacar">
-          <form action="" method="post" class="formulario-login">
-            <h5 class="mt-4">Sacar dinero.</h5>
-            <div class="correo-form">
-              <input type="email" placeholder="¿A quien vas a recibir dinero?" />
+          
+            <h5 class="mt-4">¿Desea retirar dinero?</h5>
+            <h6>Tienes: €{{user.balance}} en tu cuenta.</h6>
+            <div class="container contenedor-generador-codigo text-center mt-4">
+              <p>Dale click a "Generar" para obtener tu codigo.</p>
+            <h3>Tu codigo es:</h3>
+            <a href="/retirar" target="_blank" class="btn-register">Generar</a>
             </div>
-
-            <div class="contrasena-form">
-              <input type="number" placeholder="Monto a recibir" />
-            </div>
-
-            <div class="contrasena-form">
-
-              <input type="text" placeholder="Mensaje" />
-            </div>
-
-            <div class="boton-login">
-              <input class="btn-register" type="button" value="Enviar" />
-            </div>
-
-          </form>
         </div>
-
 
       </div>
 
     </div>
 
   </div>
-    <script src="utils/gestorTransacciones.js"></script>
+  <script src="utils/gestorTransacciones.js"></script>
 
 {{/if}}
-
-
-
-
-
