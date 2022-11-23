@@ -27,6 +27,7 @@ a.nav-link:hover{
 
 
 .btn-register {
+    list-style: none;
     text-decoration: none;
     border: none;
     border-radius: 50px;
@@ -97,6 +98,8 @@ header {
     min-height: 698px;
 }
 
+
+
 .h1-lema-principal {
     font-size: 4.5rem ;
     letter-spacing: -0.0625rem ;
@@ -104,6 +107,9 @@ header {
 }
 .parrafo-principal {
     font-size: 1.5rem;
+}
+.parrafo-movile-principal {
+    display: none;
 }
 .btn-descubrenos {
     text-decoration: none;
@@ -293,8 +299,47 @@ background: #fff;
 
 }
 
+.links-contactos {
+    font-size: 1.3em;
+
+}
+.links-contactos a {
+    text-decoration: none;
+    color: #006494;
+    transition: all 0.5s;
+
+}
+.links-contactos a:hover {
+    color: #003554;
+
+}
+
+
+
 .footer-container {
     background-color: #051923;
 }
 
 
+
+
+@media (max-width: 992px) {
+    .columna-apptrader {
+        display: none;
+    }
+    
+}
+
+
+.columna-principal-header {
+    margin: 0 !important;
+}
+
+/* @media (max-width: 653px) {
+    .parrafo-principal{
+        display: none;
+    }
+    .parrafo-movile-principal {
+        display: block;
+    }
+} */

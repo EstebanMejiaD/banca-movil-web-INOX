@@ -15,23 +15,97 @@
 
   <div class="container contenedor-de-vuelta-a-inicio">
     <div class="logo-inox">
-      <img src="../icons/INOX.ico" alt="Icono de INOX" />
+      <a href="/profile"><img src="../icons/INOX.ico" alt="Icono de INOX" /></a>
     </div>
     <div class="nav-noticias">
       <ul class="nav__items">
         <li><a class="nav__link" href="/logout"><i
               class="bi bi-box-arrow-left"
             ></i></a></li>
-        <li><a class="nav__link" href="#"><i
+        <li><a class="nav__link" id="iconListFav" href="#"><i
               class="bi bi-list-check"
             ></i></a></li>
-        <li><a class="nav__link" href="#"><i class="bi bi-chat"></i></a></li>
-
+        {{#if contadorMensajes}}
+        <li><a class="nav__link iconMensaje" href="#" id="iconMensaje"><i class="bi bi-chat" ><span class="contador-mensaje">{{contadorMensajes}}</span></i></a></li>
+            {{else}}
+        <li><a class="nav__link" href="#" id="iconMensaje"><i class="bi bi-chat" ></i></a></li>
+          {{/if}}
         <li><a class="nav__link" href="#"><i
               class="bi bi-symmetry-vertical"
             ></i></a></li>
       </ul>
     </div>
+  </div>
+   <div class="container fixed-ATM inactive" id="contenedorATM">
+    <form action="/retirar" method="POST" class="formulario-login formulario-atm">
+                    <!-- cabeza del formulario-->
+                    <div class="head-form">
+                      <span class="CloseFormATO" id="CloseFormATO"><i class="bi bi-x-lg"></i></span>
+                        <h3 class="text-center">Cajero Autimatico de INOX</h3>
+                    </div>
+                    <!-- area del correo electronico -->
+                    <div class="correo-form">
+                        <p>Direccion de correo electrónico</p>
+                        <input type="email" name="emailRetira" placeholder="Username01@inox.com" id="email">
+                    </div>
+                    <!-- area de la contraseña-->
+                    <div class="contrasena-form">
+                        <p>Codigo de autorización</p>
+                        <input type="text" name="codigoRetiro" placeholder="··········" id="pass">
+                    </div>
+                    <!-- area de la contraseña-->
+                    <div class="contrasena-form">
+                        <p>Monto a retirar</p>
+                        <input type="number" name="monto" placeholder="1000" id="pass">
+                    </div>
+
+                    <!-- area del boton de ingresar -->
+                    <div class="boton-login">
+                        <button class="btn-register" value="ingresar">
+                            Pagar
+                        </button>
+                    
+                    </div>
+                    <div class="alert-sesionFalse" id="alertSesionFalse">
+                        <!-- aquí va un mensaje de error por que el usuario no existe-->
+                      </div>
+                </form>
+  </div>
+  <div class="container fixed-ATM inactive" id="contenedorLISTFAV">
+    <form action="/retirar" method="POST" class="formulario-login formulario-atm ">
+   
+                    <!-- cabeza del formulario-->
+                    <div class="head-form">
+                      <span class="CloseFormATO" id="CloseFormLISTFAV"><i class="bi bi-x-lg"></i></span>
+                        <h3 class="text-center">Lista de favoritos INOX</h3>
+                    </div>
+                    <div class="container" id="scroll-listfav">
+                      {{#each listaFavoritos}}
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <div class="card mensaje-container">
+                <div class="card-body">
+                  <img src="" alt="">
+                  <img src="/images/{{imagen}}" >
+                  <p>{{nombre}}</p>
+                  <small>Precio: {{precio}}</small>
+                <small>Porcentaje: {{porcentaje}}%</small>
+                <div class="text-center" style="font-size: 1.3em;">
+                <a href="/addlist/{{idFavoritos}}"><i class="bi bi-check-circle-fill check-green"></i></a> 
+
+                </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          {{/each}}
+                    </div>
+</form>
+
+                   
+                    
   </div>
 
   <div class="container container-total">
@@ -72,41 +146,27 @@
             <h5>Lista de favoritos</h5>
           </div>
 
-          {{! <div class="row contenedor-de-info-favoritos">
-            <div class="col-lg-8 lado-izquierdo-info-favoritos">
-              <img src="../images/logoBTC.png" alt="logoBTC" />
-              <h6>Bitcoin</h6>
+          
 
+          <div class="container contenedor-padre-listfav">
+            <div class="container" id="scroll-list-contenedor-user">
+            {{#each listaFavoritosUser}}
+            <div class="row contenedor-de-info-favoritos">
+            <div class="col-lg-8 lado-izquierdo-info-favoritos">
+              <img src="/images/{{imagen}}"  />
+              <h6>{{nombre}}</h6>
+              <a class="delete-list" href="/delete/list/{{idListFavoritos}}"><i class="bi bi-trash3-fill"></i></a>
             </div>
             <div class="col-sm-4 lado-derecho-info-favoritos">
-              <h6>€ 19.323</h6>
-              <small>-1.7%</small>
-            </div>
-          </div> }}
-
-          <div class="row contenedor-de-info-favoritos">
-            <div class="col-lg-8 lado-izquierdo-info-favoritos">
-              <img src="../images/LogoSolana.png" alt="logoBTC" />
-              <h6>Solana</h6>
-
-            </div>
-            <div class="col-sm-4 lado-derecho-info-favoritos">
-              <h6>€ 2,43</h6>
-              <small>+3.5%</small>
+              <h6>€ {{precio}}</h6>
+              <small>{{porcentaje}}%</small>
             </div>
           </div>
-
-          <div class="row contenedor-de-info-favoritos">
-            <div class="col-lg-8 lado-izquierdo-info-favoritos">
-              <img src="../images/logoLithcoin.png" alt="logoBTC" />
-              <h6>Litecoin</h6>
-
-            </div>
-            <div class="col-sm-4 lado-derecho-info-favoritos">
-              <h6>€ 10,44</h6>
-              <small>-5.3%</small>
-            </div>
+          {{/each}}
           </div>
+          </div>
+
+          
 
         </div>
 
@@ -115,40 +175,70 @@
             <h5>Historial de transacciones</h5>
 
             <div class="row contenedor-de-controladores-grafica">
-              <div class="col-md-6 contenedor-de-boton-grafia">
+              <div class="col-md-4 contenedor-de-boton-grafia">
                 <button
                   id="controlEnviados"
                   class="controlador-grafica historial-controler"
                 >Enviados</button>
               </div>
-              <div class="col-md-6 contenedor-de-boton-grafia">
+              <div class="col-md-4 contenedor-de-boton-grafia">
+                <button
+                  id="controlRetiros"
+                  class="controlador-grafica historial-controler"
+                >Retiros</button>
+              </div>
+              <div class="col-md-4 contenedor-de-boton-grafia">
                 <button
                   id="controlRecibidos"
                   class="controlador-grafica historial-controler"
                 >Recibidos</button>
               </div>
+              
             </div>
             <div class="container inactive" id="contenedorEnviados">
               {{#each listaTransaccionesEnviada}}
-                <div class="container contenedor-transaccion-history">
-                  <p>{{fecha}}</p>
-                  <p>para: {{emailRecibe}}</p>
-                  <p class="ultimo-p">Monto de: {{monto}}</p>
-
+          <div class="row mb-3">
+            <div class="col-md-12">
+                <small class="text-center" style="display: block;">··{{timeago fecha}}··</small>
+              <div class="card mensaje-container">
+                <div class="card-body">
+                  <small>Enviado a: {{emailRecibe}}</small>
+                <small>Envió: €{{monto}}</small>
                 </div>
-              {{/each}}
-
+              </div>
+            </div>
+          </div>
+          {{/each}}
+            </div>
+            <div class="container inactive" id="contenedorRetirados">
+              {{#each listaRetiros}}
+          <div class="row mb-3">
+            <div class="col-md-12">
+                <small class="text-center" style="display: block;">··{{timeago fecha}}··</small>
+              <div class="card mensaje-container">
+                <div class="card-body">
+                  <small>Codigo de retiro: {{codigoRetiro}}</small>
+                <small>Retiro hecho por: €{{monto}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
             </div>
             <div class="container inactive" id="contenedorRecibidos">
               {{#each listaTransaccionesRecibidas}}
-                <div class="container contenedor-transaccion-history">
-                  <p>{{fecha}}</p>
-                  <p>De: {{emailEnvia}}</p>
-                  <p class="ultimo-p">Monto de: {{monto}}</p>
-
+          <div class="row mb-3">
+            <div class="col-md-12">
+                <small class="text-center" style="display: block;">··{{timeago fecha}}··</small>
+              <div class="card mensaje-container">
+                <div class="card-body">
+                  <small>De: {{emailEnvia}}</small>
+                <small>Envió: €{{monto}}</small>
                 </div>
-              {{/each}}
-
+              </div>
+            </div>
+          </div>
+          {{/each}}
             </div>
             <div class="container mensaje-sin-transacciones" id="noTransaccion">
               <p>Has click en "Enviados" ó "Recibidos" para las transacciones.</p>
@@ -189,7 +279,7 @@
           <div class="row contenedor-de-info-favoritos">
             <div class="col-lg-8 lado-izquierdo-info-favoritos">
               <img src="../images/logoEuro.png" alt="logoEuro" />
-              <h6>EURO account</h6>
+              <h6>EURO account - {{mensajeError}}</h6>
 
             </div>
             <div class="col-sm-4 lado-derecho-info-favoritos">
@@ -215,7 +305,7 @@
               <button class="btn btn-primary" id="openEnviar">Enviar</button>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-success" id="openRecibir">Recibir</button>
+              <button class="btn btn-success" id="openRecibir">Pedir</button>
             </div>
             <div class="col-md-4">
               <button class="btn btn-danger" id="openSacar">Retirar</button>
@@ -249,40 +339,90 @@
 
         <!-- form  para pedir dinero-->
         <div class="container inactive" id="formPedir">
-          <form action="" method="post" class="formulario-login">
+          <form action="/pedir" method="post" class="formulario-login">
             <h5 class="mt-4">Pedir dinero.</h5>
             <div class="correo-form">
               <input
                 type="email"
                 placeholder="¿De quien vas a recibir dinero?"
+                name="email"
               />
             </div>
 
             <div class="contrasena-form">
-              <input type="number" placeholder="Monto a recibir" />
+              <input type="number" placeholder="Monto a recibir" name="monto" />
             </div>
 
             <div class="contrasena-form">
 
-              <input type="text" placeholder="Mensaje" />
+              <input type="text" placeholder="Mensaje" name="mensaje" />
             </div>
 
             <div class="boton-login">
-              <input class="btn-register" type="button" value="Enviar" />
+              <button class="btn-register">Solicitar</button>
             </div>
 
           </form>
         </div>
         <!-- espacio para sacar dinero -->
-        <div class="container inactive" id="formSacar">
+        <div class="container" id="formSacar">
           
             <h5 class="mt-4">¿Desea retirar dinero?</h5>
             <h6>Tienes: €{{user.balance}} en tu cuenta.</h6>
             <div class="container contenedor-generador-codigo text-center mt-4">
               <p>Dale click a "Generar" para obtener tu codigo.</p>
-            <h3>Tu codigo es:</h3>
-            <a href="/retirar" target="_blank" class="btn-register">Generar</a>
+            <h3>Tu codigo es: {{codigo}}</h3>
+            {{#if codigo}}
+            <a href="/retirar"   class="btn-register ">Generar Uno nuevo</a>
+            <span class="icon-flecha-abajo "><i class="bi bi-arrow-down-circle-fill"></i></span>
+            <button id="buttonOpenAtm" class="btn-register mt-1"  >Abrir ATM INOX</button>
+            {{else}}
+            <a href="/retirar"  id="buttonOpenAtm" class="btn-register">Generar</a>
+
+            {{/if}}
+
+            {{#if mensajeError}}
+            <div class="container text-center">
+                  <p>{{mensajeError}}</p>
+                </div>
+            {{/if}}
+            {{#if mensajeExito}}
+            <div class="container text-center">
+                  <p>{{mensajeExito}}</p>
+                </div>
+            {{/if}}
+                
             </div>
+
+        </div>
+
+        <div class="container  inactive" id="contenedorMensajes">
+          <h5>Mensajes Recibidos.</h5>
+          <h6>Tienes: €{{user.balance}} en tu cuenta.</h6>
+          <div class="contenedor-mensaje">
+          {{#each listaMensajesRecibidos}}
+          <div class="row mb-3">
+            <div class="col-md-12">
+                <small class="text-center" style="display: block;">··{{timeago fecha}}··</small>
+              <div class="card mensaje-container">
+                <div class="card-body">
+                  
+                  <small>De: {{emailEnviaMensaje}}</small>
+                <small>Dice: {{mensaje}}</small>
+                <small>Pide: €{{monto}}</small>
+                <div class="text-center" style="font-size: 1.3em;">
+                <a href="/envio/pedir/{{idMensaje}}"><i class="bi bi-check-circle-fill check-green"></i></a> ·· <a href="/delete/pedir/{{idMensaje}}"><i class="bi bi-x-circle-fill check-red"></i></a>
+
+                </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          
+          {{/each}}
+          </div>
         </div>
 
       </div>
@@ -290,6 +430,9 @@
     </div>
 
   </div>
+
+
+ 
   <script src="utils/gestorTransacciones.js"></script>
 
 {{/if}}

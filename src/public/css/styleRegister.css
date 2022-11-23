@@ -262,3 +262,13 @@ padding: 30px 60px;
 .form_grupo-incorrecto .form_input{
     border: 3px solid #bb2929;
 }
+
+
+/* Media query*/
+
+@media (max-width: 992px) {
+    .lado-izquierdo {
+        display: none;
+    }
+    
+}

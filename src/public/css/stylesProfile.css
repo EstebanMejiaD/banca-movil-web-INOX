@@ -190,7 +190,7 @@ body {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    height: 300px;
+    height: 230px;
     text-align: center;
     box-shadow:  7px 15px 25px #006494;
 }
@@ -210,6 +210,22 @@ body {
 
 .mensaje-sin-transacciones {
     margin-top: 100px;
+}
+
+#contenedorEnviados {
+    height: 170px;
+	
+	overflow-y: scroll;
+}
+#contenedorRecibidos {
+    height: 170px;
+	
+	overflow-y: scroll;
+}
+#contenedorRetirados {
+    height: 170px;
+	
+	overflow-y: scroll;
 }
 
 
@@ -410,4 +426,100 @@ body {
 
 .inactive {
     display: none !important;
+}
+
+/* mensaje styles*/
+.contador-mensaje {
+    position: relative;
+    right: 17px;
+    bottom: 3px;
+    font-size: 0.8em;
+    color: rgb(0, 97, 0);
+
+}
+.iconMensaje i {
+    color: rgb(0, 97, 0);
+    
+}
+
+.mensaje-container {
+    border-radius: 20px;
+    box-shadow:  3px 7px 10px #006494;
+}
+.mensaje-container small{
+    display: block;
+
+}
+
+.contenedor-mensaje {
+    overflow-y: scroll;
+    height: 400px;
+    padding: 15px;
+    
+}
+
+.check-green {
+    color: green;
+}
+.check-green:hover {
+    color: rgb(0, 97, 0);
+}
+
+.check-red {
+    color: red;
+}
+.check-red:hover {
+    color: rgb(202, 0, 0);
+}
+
+/* form ATM styles */
+
+
+.fixed-ATM {
+    position: fixed;
+    width: 700px;
+    height: fit-content;
+    z-index: 100;
+
+}
+
+.formulario-atm {
+    position: absolute;
+    top: 30px;
+    left: 22%;
+    height: 620px;
+    padding: 30px;
+    width: 350px;
+}
+
+.icon-flecha-abajo {
+    display: block;
+    font-size: 1.3em;
+    margin-top: 7px;
+}
+
+
+#scroll-listfav {
+    height: 400px;
+	
+	overflow-y: scroll;
+}
+
+#scroll-list-contenedor-user {
+    height: 80px;
+	
+	overflow-y: scroll;
+    
+}
+
+.contenedor-padre-listfav {
+    padding: 10px;
+}
+
+
+.delete-list {
+    color: red;
+}
+.delete-list:hover {
+    color: rgb(175, 0, 0);
 }
